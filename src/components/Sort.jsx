@@ -2,10 +2,17 @@ import { useState } from 'react'
 
 function Sort() {
   const [open, setOpen] = useState(false)
+  const [selected, setSelected] = useState(0)
+  const sortBy = ['популярности', 'цене', 'алфавиту']
+  const sortName = sortBy[selected]
+  const changeSortBy = (index) => {
+    setSelected(index)
+    setOpen(false)
+  }
 
   return (
     <div className="sort">
-      <div onClick={() => setOpen((prev) => !prev)} className="sort__label">
+      <div className="sort__label">
         <svg
           width="10"
           height="6"
@@ -18,14 +25,19 @@ function Sort() {
           />
         </svg>
         <b>Сортировка по:</b>
-        <span>популярности</span>
+        <span onClick={() => setOpen((prev) => !prev)}>{sortName}</span>
       </div>
       {open && (
         <div className="sort__popup">
           <ul>
-            <li className="active">популярности</li>
-            <li>цене</li>
-            <li>алфавиту</li>
+            {sortBy.map((value, index) => (
+              <li
+                key={index}
+                onClick={() => changeSortBy(index)}
+                className={selected === index ? 'active' : ''}>
+                {value}
+              </li>
+            ))}
           </ul>
         </div>
       )}
