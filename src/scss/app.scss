@@ -7,29 +7,34 @@ body {
 }
 
 .wrapper {
-  width: calc(100vw - 100px);
-  height: 100%;
+  padding: 50px 25px;
+}
+
+.main {
+  margin: 0 auto;
   background-color: #fff;
-  margin: 50px auto;
   border-radius: 10px;
   max-width: 1400px;
 }
 
 .content {
-  padding: 40px 0;
+  padding: 20px 0;
 
   &__title {
     margin: 35px 0;
+    font-weight: 800;
+    font-size: 28px;
   }
 
   &__items {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: space-evenly;
   }
 
   &__top {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
   }
