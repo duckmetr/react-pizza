@@ -1,40 +1,57 @@
-import { useState } from 'react'
+// import { useState } from 'react'
 
-function Sort() {
-  const [open, setOpen] = useState(false)
-  const [selected, setSelected] = useState(0)
-  const sortBy = ['популярности', 'цене', 'алфавиту']
-  const sortName = sortBy[selected]
-  const changeSortBy = (index) => {
-    setSelected(index)
-    setOpen(false)
-  }
+function Sort({ sortId, changeSortId, open, setOpen }) {
+  const sortNames = ['популярности', 'цене', 'алфавиту']
+  const sortName = sortNames[sortId]
 
   return (
     <div className="sort">
       <div className="sort__label">
-        <svg
-          width="10"
-          height="6"
-          viewBox="0 0 10 6"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg">
-          <path
-            d="M10 5C10 5.16927 9.93815 5.31576 9.81445 5.43945C9.69075 5.56315 9.54427 5.625 9.375 5.625H0.625C0.455729 5.625 0.309245 5.56315 0.185547 5.43945C0.061849 5.31576 0 5.16927 0 5C0 4.83073 0.061849 4.68424 0.185547 4.56055L4.56055 0.185547C4.68424 0.061849 4.83073 0 5 0C5.16927 0 5.31576 0.061849 5.43945 0.185547L9.81445 4.56055C9.93815 4.68424 10 4.83073 10 5Z"
-            fill="#2C2C2C"
-          />
-        </svg>
+        {open ? (
+          <svg
+            width="12"
+            height="12"
+            xmlns="http://www.w3.org/2000/svg"
+            x="0px"
+            y="0px"
+            fill="none"
+            viewBox="0 0 330.002 330.002">
+            <path
+              id="XMLID_21_"
+              d="M324.371,213.287l-150.004-120c-5.479-4.382-13.262-4.381-18.741,0.001l-149.996,120
+         c-4.974,3.979-6.893,10.667-4.784,16.678c2.108,6.011,7.784,10.035,14.154,10.035h300c6.371,0,12.046-4.024,14.154-10.035
+         C331.264,223.954,329.346,217.267,324.371,213.287z"
+              fill="#2C2C2C"
+            />
+          </svg>
+        ) : (
+          <svg
+            width="12"
+            height="12"
+            xmlns="http://www.w3.org/2000/svg"
+            x="0px"
+            y="0px"
+            fill="none"
+            viewBox="0 0 330.002 330.002">
+            <path
+              d="M329.155,100.036c-2.108-6.011-7.784-10.035-14.154-10.035h-300c-6.371,0-12.046,4.024-14.154,10.035
+	c-2.109,6.011-0.19,12.699,4.784,16.678l150.004,120c2.739,2.191,6.055,3.287,9.37,3.287c3.316,0,6.631-1.096,9.371-3.287
+	l149.996-120C329.346,112.734,331.264,106.047,329.155,100.036z"
+              fill="#2C2C2C"
+            />
+          </svg>
+        )}
         <b>Сортировка по:</b>
         <span onClick={() => setOpen((prev) => !prev)}>{sortName}</span>
       </div>
       {open && (
         <div className="sort__popup">
           <ul>
-            {sortBy.map((value, index) => (
+            {sortNames.map((value, index) => (
               <li
                 key={index}
-                onClick={() => changeSortBy(index)}
-                className={selected === index ? 'active' : ''}>
+                onClick={() => changeSortId(index)}
+                className={sortId === index ? 'active' : ''}>
                 {value}
               </li>
             ))}
