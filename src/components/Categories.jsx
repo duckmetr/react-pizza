@@ -1,5 +1,5 @@
 function Categories({ categoryId, changeCategoryId }) {
-  const categories = ['Все', 'Мясные', 'Вегетарианская', 'Гриль', 'Острые', 'Закрытые']
+  const categories = ['Всі', "М'ясні", 'Вегетаріанські', 'Гриль', 'Гострі', 'Закриті']
 
   return (
     <div className="categories">

@@ -4,7 +4,7 @@ function PizzaBlock({ title, price, imageUrl, sizes, types }) {
   const [pizzaCount, setPizzaCount] = useState(0)
   const [activeType, setActiveType] = useState(0)
   const [activeSize, setActiveSize] = useState(0)
-  const typeNames = ['тонкое', 'традиционное']
+  const typeNames = ['тонке', 'традиційне']
   const addButton = () => setPizzaCount((prev) => ++prev)
 
   return (
@@ -34,7 +34,7 @@ function PizzaBlock({ title, price, imageUrl, sizes, types }) {
         </ul>
       </div>
       <div className="pizza-block__bottom">
-        <div className="pizza-block__price">от {price} ₽</div>
+        <div className="pizza-block__price">від {price} ₴</div>
         <button onClick={addButton} className="button button--outline button--add">
           <svg
             width="12"
@@ -47,7 +47,7 @@ function PizzaBlock({ title, price, imageUrl, sizes, types }) {
               fill="white"
             />
           </svg>
-          <span>Добавить</span>
+          <span>Додати</span>
           <i>{pizzaCount}</i>
         </button>
       </div>

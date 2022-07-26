@@ -1,7 +1,7 @@
 // import { useState } from 'react'
 
 function Sort({ sortId, changeSortId, open, setOpen }) {
-  const sortNames = ['популярности', 'цене', 'алфавиту']
+  const sortNames = ['популярністю', 'ціною', 'абеткою']
   const sortName = sortNames[sortId]
 
   return (
@@ -41,7 +41,7 @@ function Sort({ sortId, changeSortId, open, setOpen }) {
             />
           </svg>
         )}
-        <b>Сортировка по:</b>
+        <b>Сортування за:</b>
         <span onClick={() => setOpen((prev) => !prev)}>{sortName}</span>
       </div>
       {open && (
